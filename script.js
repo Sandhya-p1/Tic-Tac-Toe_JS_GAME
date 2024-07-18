@@ -36,9 +36,9 @@ buttons.forEach((btn) => {
 
 const checkWinner = () => {
   for (let patterns of winningPatterns) {
-    const positionVal1 = buttons[patterns[0]];
-    const positionVal2 = buttons[patterns[1]];
-    const positionVal3 = buttons[patterns[2]];
+    const positionVal1 = buttons[patterns[0]].innerText;
+    const positionVal2 = buttons[patterns[1]].innerText;
+    const positionVal3 = buttons[patterns[2]].innerText;
     if (positionVal1 != "" && positionVal2 != "" && positionVal3 != "") {
       if (positionVal1 === positionVal2 && positionVal2 === positionVal3) {
         showWinner(positionVal1);
@@ -48,8 +48,9 @@ const checkWinner = () => {
 };
 
 const showWinner = (winner) => {
-  messageContainer.classList.remove("hide");
   winingMsg.innerText = `Congratulations,The Winner is ${winner}`;
+  console.log(winner);
+  messageContainer.classList.remove("hide");
   disabledButtons();
 };
 
@@ -62,6 +63,7 @@ const disabledButtons = () => {
 const enableddButtons = () => {
   for (let btn of buttons) {
     btn.disabled = false;
+    btn.innerText = "";
   }
 };
 
